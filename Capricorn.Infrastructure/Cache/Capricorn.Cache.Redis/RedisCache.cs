@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.Caching.Distributed;
+﻿using Capricorn.Util;
+using Microsoft.Extensions.Caching.Distributed;
 using StackExchange.Redis;
 using System;
 using System.Collections.Generic;
@@ -12,7 +13,7 @@ namespace Capricorn.Cache.Redis
         private static ConnectionMultiplexer redisConnection { get; }
         static RedisCache()
         {
-            redisConnection = ConnectionMultiplexer.Connect("127.0.0.1:6379");
+            redisConnection = ConnectionMultiplexer.Connect(Config.Get("ConnectionStrings:Redis:ConnectionString"));
         }
 
         /// <summary>

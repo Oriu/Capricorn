@@ -36,22 +36,6 @@ namespace Capricorn
             //初始化数据库上下文
             services.AddDbContext<DataBaseContext>();
 
-            //添加redis连接
-            services.AddDistributedMemoryCache();
-            services.AddStackExchangeRedisCache(options =>
-            {
-                options.Configuration = "127.0.0.1:6379";
-                options.InstanceName = "SampleInstance";
-                //options.ConfigurationOptions = new ConfigurationOptions()
-                //{
-                //    //是一个列表，一个复杂的的场景中可能包含有主从复制 ， 对于这种情况，只需要指定所有地址在连接字符串中
-                //    //（它将会自动识别出主服务器）假设这里找到了两台主服务器，将会对两台服务进行裁决选出一台作为主服务器
-                //    //来解决这个问题 ， 这种情况是非常罕见的 ，我们也应该避免这种情况的发生。
-                //    EndPoints = { { "127.0.0.1", 6379 } },
-                //    //Password = "123456"
-                //};
-            });
-
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
         }
 

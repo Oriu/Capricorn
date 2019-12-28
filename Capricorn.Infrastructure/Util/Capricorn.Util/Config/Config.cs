@@ -30,14 +30,5 @@ namespace Capricorn.Util
         {
             return _configuration[key];
         }
-
-        /// <summary>
-        /// 读取指定节点信息
-        /// </summary>
-        //public static T Get<T>(string key)
-        //{
-        //    string json = Get(key);
-        //    return json.FromJsonString<T>();
-        //}
     }
 }
