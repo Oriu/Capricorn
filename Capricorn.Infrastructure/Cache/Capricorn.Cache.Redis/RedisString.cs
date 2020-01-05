@@ -15,7 +15,7 @@ namespace Capricorn.Cache.Redis
         /// <param name="value">值</param>
         /// <param name="dbid">redis数据库id</param>
         /// <param name="expiry">过期时间</param>
-        public async Task<bool> SetStringAsync(string key, string value, int dbid, TimeSpan? expiry = null)
+        public async Task<bool> SetStringAsync(RedisKey key, RedisValue value, int dbid, TimeSpan? expiry = null)
         {
             return await redisConnection.GetDatabase(dbid).StringSetAsync(key, value, expiry);
         }
@@ -35,7 +35,7 @@ namespace Capricorn.Cache.Redis
         /// 获取指定key得值(key不存在返回null)
         /// </summary>
         /// <param name="key">键</param>
-        public async Task<string> GetStringAsync(string key, int dbid)
+        public async Task<string> GetStringAsync(RedisKey key, int dbid)
         {
             return await redisConnection.GetDatabase(dbid).StringGetAsync(key);
         }
@@ -65,7 +65,7 @@ namespace Capricorn.Cache.Redis
         /// <param name="key">键</param>
         /// <param name="value">值</param>
         /// <param name="dbid">redis数据库id</param>
-        public async Task<bool> StringAppendAsync(string key, string value, int dbid)
+        public async Task<bool> StringAppendAsync(RedisKey key, RedisValue value, int dbid)
         {
             var length = await redisConnection.GetDatabase(dbid).StringAppendAsync(key, value);
             return length > 0;
@@ -79,7 +79,7 @@ namespace Capricorn.Cache.Redis
         /// <param name="end">结束位置</param>
         /// <param name="dbid">redis数据库id</param>
         /// <returns></returns>
-        public async Task<string> StringGetRangeAsync(string key, int start, int end, int dbid)
+        public async Task<string> StringGetRangeAsync(RedisKey key, long start, long end, int dbid)
         {
             return await redisConnection.GetDatabase(dbid).StringGetRangeAsync(key, start, end);
         }
@@ -89,7 +89,7 @@ namespace Capricorn.Cache.Redis
         /// </summary>
         /// <param name="key">键</param>
         /// <param name="dbid">redis数据库id</param>
-        public async Task<long> StringLengthAsync(string key, int dbid)
+        public async Task<long> StringLengthAsync(RedisKey key, int dbid)
         {
             return await redisConnection.GetDatabase(dbid).StringLengthAsync(key);
         }
