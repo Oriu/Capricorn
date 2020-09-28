@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Capricorn.Db.SqlServer;
+using Capricorn.ExtendMiddleware.CapException;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -36,21 +37,22 @@ namespace Capricorn
             //初始化数据库上下文
             services.AddDbContext<DataBaseContext>();
 
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2).AddMvcOptions(options => options.Filters.Add(new CapExceptionFilter()));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
-            if (env.IsDevelopment())
-            {
-                app.UseDeveloperExceptionPage();
-            }
-            else
-            {
-                app.UseExceptionHandler("/Home/Error");
-                app.UseHsts();
-            }
+            //if (env.IsDevelopment())
+            //{
+            //    app.UseDeveloperExceptionPage();
+            //}
+            //else
+            //{
+            //app.UseMiddleware<CapExceptionMiddleware>();
+            app.UseExceptionHandler(appbuidler => appbuidler.Use(new CapExceptionHandler().ExceptionHandler));
+            app.UseHsts();
+            //}
 
             app.UseHttpsRedirection();
             app.UseStaticFiles();

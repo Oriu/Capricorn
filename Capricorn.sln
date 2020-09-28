@@ -35,6 +35,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Util", "Util", "{E7FC57CA-2
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Capricorn.Util", "Capricorn.Infrastructure\Util\Capricorn.Util\Capricorn.Util.csproj", "{E9A243BD-66B8-4117-9809-95C3F0979EB6}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Capricorn.WebApi", "Capricorn.WebApi\Capricorn.WebApi.csproj", "{1B2ADDF1-F7AD-42EF-BAEF-5DFDB7E91533}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -65,6 +67,10 @@ Global
 		{E9A243BD-66B8-4117-9809-95C3F0979EB6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E9A243BD-66B8-4117-9809-95C3F0979EB6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E9A243BD-66B8-4117-9809-95C3F0979EB6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1B2ADDF1-F7AD-42EF-BAEF-5DFDB7E91533}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1B2ADDF1-F7AD-42EF-BAEF-5DFDB7E91533}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1B2ADDF1-F7AD-42EF-BAEF-5DFDB7E91533}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1B2ADDF1-F7AD-42EF-BAEF-5DFDB7E91533}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -83,6 +89,7 @@ Global
 		{3DD52331-1C80-49B9-B2B4-62CC0BA845E8} = {44340EF3-4814-486C-BF8A-5A66C4A4B100}
 		{E7FC57CA-2FA7-4C30-8873-A87785458847} = {90E3F378-CF30-4DF8-98C9-F86D62C0875F}
 		{E9A243BD-66B8-4117-9809-95C3F0979EB6} = {E7FC57CA-2FA7-4C30-8873-A87785458847}
+		{1B2ADDF1-F7AD-42EF-BAEF-5DFDB7E91533} = {2C0A8483-FFB7-459D-97F2-F4F57632C200}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {D4A0B969-7D7E-4BA1-AD07-C0F154E5DBED}

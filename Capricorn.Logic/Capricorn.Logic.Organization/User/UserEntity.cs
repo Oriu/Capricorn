@@ -215,6 +215,8 @@ namespace Capricorn.Logic.Organization
         /// </summary>
         public void Create()
         {
+            int i = 0;
+            var s = 1 / i;
             //UserInfo userInfo = LoginUserInfo.Get();
             //this.F_CreateUserId = userInfo.userId;
             //this.F_CreateUserName = userInfo.realName;

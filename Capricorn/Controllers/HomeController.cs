@@ -6,18 +6,19 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Caching.Distributed;
 using Capricorn.Cache.Redis;
 using System.Threading.Tasks;
+using Capricorn.Logic.Organization;
 
 namespace Capricorn.Controllers
 {
     public class HomeController : Controller
     {
-        private RedisCache redisCache = new RedisCache();
         public HomeController()
         {
         }
         public async Task<IActionResult> SetCacheAsync(string setkey, string setvalue)
         {
-            await redisCache.SetStringAsync("13123","213123");
+            UserEntity user = new UserEntity();
+            user.Create();
             return Content("ok");
         }
     }
